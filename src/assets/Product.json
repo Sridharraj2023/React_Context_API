@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1001,
+      "name": "Samsung Mobile",
+      "price": 30000,
+      "url": "https://www.reliancedigital.in/medias/Samsung-Galaxy-A04e-Mobile-Phone-493664699-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wzNTE4MDZ8aW1hZ2UvanBlZ3xpbWFnZXMvaDYyL2g2Ny85OTM2NTkzODc5MDcwLmpwZ3w2ZjM5NTA0ZWUxODRjMzA3YzUzMTEzYTE5MTJlNmFiNGYwNDAwNGEzMTIyMDEwMmFhMmZmM2RlOTNiODI5ODNh"
+    },
+    {
+      "id": 1002,
+      "name": "Apple Mobile",
+      "price": 40000,
+      "url": "https://4.imimg.com/data4/LY/WP/GLADMIN-8934545/apple-mobiles-500x500.jpg"
+    },
+    {
+      "id": 1003,
+      "name": "LG Mobile",
+      "price": 20000,
+      "url": "https://img.giznext.com/assets/model/18/13339/lg-mobiles-lg-v80-thinq-uw-1626951215.jpg"
+    },
+    {
+      "id": 1004,
+      "name": "MI Mobile",
+      "price": 10000,
+      "url": "https://cdn1.smartprix.com/rx-ijqsTjZRe-w1200-h1200/jqsTjZRe.jpg"
+    },
+
+    {
+      "id": 1005,
+      "name": "Apple Mobile",
+      "price": 50000,
+      "url": "https://www.myg.in/images/thumbnails/624/460/detailed/24/APPLE_iPhone_13_Blue-2.jpg"
+    }
+  ]
+  
