@@ -1,5 +1,6 @@
 .product-container {
   display: flex;
+  flex-direction: column;
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 20px;
@@ -37,6 +38,7 @@
   cursor: pointer;
   border-radius: 4px;
   margin-right: 5px;
+  width: 50px;
 }
 
 .quantity-btn:hover {
@@ -46,6 +48,7 @@
 .quantity {
   font-size: 1.2rem;
   margin: 0 10px;
+  width: 10px;
 }
 
 .add-to-cart {
