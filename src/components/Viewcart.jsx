@@ -9,7 +9,8 @@ const Viewcart = () => {
 
   useEffect(() => {
     // Calculate total price whenever cart changes
-    setTotal(cart.reduce((acc, cv) => acc + parseFloat(cv.price), 0)); // Use parseFloat for price calculation
+    const totalPrice = cart.reduce((acc, cv) => acc + (cv.price * cv.count), 0);
+    setTotal(totalPrice);
   }, [cart]);
 
   const removeFromCart = (productId) => {
@@ -28,10 +29,12 @@ const Viewcart = () => {
             </div>
             <div className='cart-details'>
               <h3>{product.name}</h3>
+              <p>Quantity: {product.count}</p>
               <h4>Price: Rs. {product.price}.00</h4>
               <button className='remove-btn' onClick={() => removeFromCart(product.id)}>
                 Remove from Cart
               </button>
+              <p>Total Price for {product.name}: Rs. {product.price * product.count}.00</p>
             </div>
           </div>
         ))}
@@ -43,3 +46,4 @@ const Viewcart = () => {
 };
 
 export default Viewcart;
+
