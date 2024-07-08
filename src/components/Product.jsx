@@ -6,7 +6,15 @@ const Product = ({ product }) => {
   const { cart, setCart } = useContext(cartContext);
   const [count, setCount] = useState(0); // State to track product count
 
-  const addCart = () => {
+  // Find initial count if product already exists in cart
+  useState(() => {
+    const existingItem = cart.find((item) => item.id === product.id);
+    if (existingItem) {
+      setCount(existingItem.count);
+    }
+  }, [cart, product.id]);
+
+  const addToCart = () => {
     const updatedCart = [...cart];
     const existingItemIndex = updatedCart.findIndex((item) => item.id === product.id);
 
@@ -22,10 +30,18 @@ const Product = ({ product }) => {
     setCount(count + 1); // Increment count
   };
 
-  const removeCart = () => {
-    const updatedCart = cart.filter((c) => c.id !== product.id);
-    setCart(updatedCart);
-    setCount(count - 1); // Decrement count
+  const removeFromCart = () => {
+    if (count > 0) {
+      const updatedCart = [...cart];
+      const existingItemIndex = updatedCart.findIndex((item) => item.id === product.id);
+
+      if (existingItemIndex !== -1) {
+        // Decrement count if item exists in cart and count > 0
+        updatedCart[existingItemIndex].count -= 1;
+        setCart(updatedCart);
+        setCount(count - 1); // Decrement count
+      }
+    }
   };
 
   const calculateTotalPrice = () => {
@@ -40,16 +56,16 @@ const Product = ({ product }) => {
       <div className='details'>
         <h3>{product.name}</h3>
         <p>Product Price Rs: {product.price}</p>
-        <p>Quantity: {count}</p>
+        <div className='quantity-control'>
+          <button className='quantity-btn' onClick={removeFromCart}>-</button>
+          <span className='quantity'>{count}</span>
+          <button className='quantity-btn' onClick={addToCart}>+</button>
+        </div>
         <p>Total Price Rs: {calculateTotalPrice()}</p>
       </div>
-      {count > 0 ? (
-        <button className='remove-from-cart' onClick={removeCart}>
+      {count > 0 && (
+        <button className='remove-from-cart' onClick={() => removeFromCart()}>
           Remove from Cart
-        </button>
-      ) : (
-        <button className='add-to-cart' onClick={addCart}>
-          Add to Cart
         </button>
       )}
     </div>
@@ -57,4 +73,5 @@ const Product = ({ product }) => {
 };
 
 export default Product;
+
 
