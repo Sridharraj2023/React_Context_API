@@ -31,10 +31,12 @@ const Viewcart = () => {
               <h3>{product.name}</h3>
               <p>Quantity: {product.count}</p>
               <h4>Price: Rs. {product.price}.00</h4>
+              
+              <h3>Total Price for {product.name}: Rs. {product.price * product.count}.00</h3>
+
               <button className='remove-btn' onClick={() => removeFromCart(product.id)}>
                 Remove from Cart
               </button>
-              <p>Total Price for {product.name}: Rs. {product.price * product.count}.00</p>
             </div>
           </div>
         ))}
