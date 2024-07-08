@@ -3,13 +3,19 @@ import './Viewcart.css';
 import { cartContext } from '../App';
 
 const Viewcart = () => {
-  const { cart } = useContext(cartContext); // Destructure directly from context
+  const { cart, setCart } = useContext(cartContext); // Destructure directly from context
 
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
+    // Calculate total price whenever cart changes
     setTotal(cart.reduce((acc, cv) => acc + parseFloat(cv.price), 0)); // Use parseFloat for price calculation
   }, [cart]);
+
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter((product) => product.id !== productId);
+    setCart(updatedCart);
+  };
 
   return (
     <>
@@ -23,6 +29,9 @@ const Viewcart = () => {
             <div className='cart-details'>
               <h3>{product.name}</h3>
               <h4>Price: Rs. {product.price}.00</h4>
+              <button className='remove-btn' onClick={() => removeFromCart(product.id)}>
+                Remove from Cart
+              </button>
             </div>
           </div>
         ))}
