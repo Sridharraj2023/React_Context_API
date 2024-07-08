@@ -57,7 +57,7 @@ const Product = ({ product }) => {
         <h3>{product.name}</h3>
         <p>Product Price Rs: {product.price}</p>
         <div className='quantity-control'>
-          <button className='quantity-btn' onClick={removeFromCart}>-</button>
+{/*           <button className='quantity-btn' onClick={removeFromCart}>-</button> */}
           <span className='quantity'>{count}</span>
           <button className='quantity-btn' onClick={addToCart}>+</button>
         </div>
